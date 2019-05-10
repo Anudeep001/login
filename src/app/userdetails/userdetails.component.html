@@ -1,0 +1,49 @@
+
+       <h1 class="welcome_ul" > <strong>Welcome</strong> </h1>
+        <a href="#" title="Profile" class="a1"> {{userId}}</a>
+   
+<div class="div2">
+ <div class="wrapper">
+    <!-- <h1> <strong>Welcome</strong> </h1> <a href="#" title="Profile" class="a1"> <%=username%></a> -->
+    <h2>Transactions</h2>
+    <hr>
+    <button class="add" >
+            <a routerLink="/subbody/add">
+                <i class="fa fa-plus" style="font-size:20px;padding-right: 10px;"></i>
+            <span>Add Transactions</span>
+        </a>
+          </button>
+          <table class="table_class" cellpadding="6" cellspacing="6">
+            <tr>
+            <th class="head_table">NO</th>
+            <th class="head_table">Transactions</th>
+            <th class="head_table">Date</th>
+            <th class="head_table">tr_time</th>
+            <th class="head_table">Description</th>
+            <th class="head_table">Status</th>
+            <th class="head_table" width="120px">Active</th>
+            </tr>
+           
+           
+                <tr  class="row_table" *ngFor="let emp of empdata;let i = index">
+                    <td class="data_table">{{i+1}}</td>
+                    <td class="data_table">{{user.Transactions}}</td>
+                    <td class="data_table">{{user.date}}</td>
+                    <td class="data_table">{{user.tr_time}}</td>
+                    <td class="data_table">{{emp.description}}</td>
+                    <td class="data_table">{{emp.status}}</td>
+                    <td class="data_table">
+                    <a class="edit" [routerLink]="['/subbody/edit',emp.task]"><i class="fa fa-edit" style="font-size:20px;"></i></a>
+                    <a class="delete" (click)="deleteTasks(emp.task)"><i class="fa fa-trash" style="font-size:20px;"></i></a>
+                </td>
+            </tr>
+            <tr *ngIf="empdata.length==0" class="row_table">
+                <td class="data_table" colspan="5">No data Found</td>
+        
+              </tr>
+        
+      
+    </table>   
+  </div>
+</div>
+
